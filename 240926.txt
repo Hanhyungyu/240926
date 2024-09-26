@@ -1,0 +1,56 @@
+item테이블/orders테이블/order_item테이블/Member테이블
+
+오늘은 DAO를 만드는 걸로 관건으로 하고
+안에다가 값을 넣는 거는 빡셀 거 같고요.
+
+주문을 insert하고 select하는 걸 목표로 만들어보세요
+
+상품주문 관리 CLI 프로젝트
+
+기간: 2024.9.26~27 (목, 금)
+마감: 2024.9.30(월) 오후 5시 강사에게 보여주세요.
+분석설계 자료: 메일 링크 참조
+
+개발도구: STS3(Spring Tool Suite 3), 스프링5 프레임워크, Mysql DBMS, JdbcTemplate
+DB 이름: spring5db2
+Mysql 사용자명: spring5 (암호:spring5)
+참고 프로젝트:  우리 스프링책 3~8장 참고, 메일 링크 참조
+
+create database spring5db2;
+grant all privileges on spring5db2.* to 'spring5'@'localhost';
+
+* 참고자료는 메일링크로 제공 예정
+
+select m.name, i.name, i.price, oi.count,oi.orderprice, o.order_date
+from member m, orders o, order_item oi, item i
+where m.id=o.member_id
+and o.id=oi.order_id
+and oi.item_id=i.id
+
+이렇게 다양한 테이블들의 조인들을 기억하자
+
+쿼리문으로 프로세스를 돌려보고
+
+주문만 넣어서 만들어보세요
+
+insert랑 select만 해보세요(조인해서)
+
+mysql에서 쿼리문으로 테스트가 되면 그 쿼리문을 가지고 DAO를 만드세요
+
+테스팅 프로그램은 자산입니다.
+
+보안은 네트워킹 방식이겠구나
+
+반복문 돌아가는거 (console창에 옛날에 입출금 만들었던 거)
+
+insert/update/delete 해보세요
+
+항상 약한 곳이 있다면 작게 만들어서 프로토타입을 만들어서 해보고 (당일 완성하도록)
+해서 하는 거지 약한 곳을 차근 차근 오늘은 여기 내일은 여기 이런 식으로 하는 거는 별로다.
+
+
+
+
+
+
+

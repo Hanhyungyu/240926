@@ -1,0 +1,40 @@
+Member_id-식별번호
+name-사용자의 이름
+city-사용자의 도시
+street-사용자의 도로명주소
+zipcode-zipcode
+
+
+orders-
+order_id-주문번호
+Member_id-회원식별번호
+Delivery_id-배달번호
+Orderdate-주문날짜
+status-상품의 상태(배달중인지/포장중인지)
+
+order_item-
+order_item_id-주문한 상품의 식별번호
+order_id-주문 식별번호(주문번호)
+item_id-상품식별번호
+OrderPrice-주문한 상품의 가격
+Count-주문한 상품의 수량
+
+Item-상품식별번호
+Name-상품의 이름
+Price-상품의 가격
+StockQuantity-재고수량
+
+id는 조인만해서 출력은 안하는 구나(조인을 해서 연결을 하는 방식이구나)
+
+주문-회원의 주소(city,street)/회원의 이름/상품의 이름/주문한 상품의 수량/주문한 상품의 가격/주문한 날짜/
+
+주문-회원의 이름/주소/상품의 이름/상품수량/가격/날짜
+
+select m.name,m.city,m.street, i.name,oi.count,oi.orderprice,o.order_date
+from member m, orders o, order_item oi, item i
+where m.id=o.member_id
+and o.id=oi.order_id
+and oi.item_id=i.id
+
+
+
